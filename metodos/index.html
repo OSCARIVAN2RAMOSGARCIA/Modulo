@@ -1,0 +1,52 @@
+<html>
+    <title>Metodos numericos</title>
+    <head>
+
+    </head>
+    <body>
+        <h1>Crecimiento y decrecimiento</h1>
+            <div class="chatbox">
+            <div id="printmensajes" class="chatlogs"></div>
+                <div id="formulariomensajes" class="chat-form">
+                    <input type="number" id="txtP" placeholder="P`">
+                    <input type="number" id="txtT" placeholder="t">
+                    <input type="number" id="txtP1" placeholder="P">
+                    <input type="number" id="txtH" placeholder="h">
+                    <button type="submit" id="btn-msg">Enviar</button>
+            </div>
+    </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    
+    var socket=io();
+
+        socket.on("nuevo_mensaje",function(ejercicio){
+     document.getElementById("printmensajes").innerHTML +="<div></div><p class='mensaje'>"+ejercicio+"</p></div>";
+        });
+
+    document.getElementById("btn-msg").addEventListener("click",function(){
+    var pd=document.getElementById("txtP");
+    var t=document.getElementById("txtT");
+    var p=document.getElementById("txtP1");
+    var h=document.getElementById("txtH");
+    
+    var ejercicio={
+        
+        pad:pd.value,
+        ta:t.value,
+        pa:p.value,
+        ha:h.value
+        
+        }
+        resolver(ejercicio);
+        
+        pd.value="";
+        t.value="";
+        p.value="";
+        h.value="";              
+    })
+    function resolver(ejercicio){
+        socket.emit("nuevo_mensaje",ejercicio);
+    }
+    </script>
+</html>

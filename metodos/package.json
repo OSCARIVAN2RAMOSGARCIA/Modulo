@@ -1,0 +1,20 @@
+{
+  "name": "metodos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "nodemon": "^2.0.7",
+    "parser": "^0.1.4",
+    "socket.io": "^4.1.2"
+  }
+}
